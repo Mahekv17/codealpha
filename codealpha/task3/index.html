@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Issue Tracker</h1>
+        <div id="issues-container"></div>
+        <div id="create-issue-form">
+            <h2>Create Issue</h2>
+            <label for="title">Title:</label>
+            <input type="text" id="title" required>
+            <label for="description">Description:</label>
+            <textarea id="description" rows="4" required></textarea>
+            <label for="priority">Priority:</label>
+            <select id="priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <label for="assignedTo">Assigned To:</label>
+            <input type="text" id="assignedTo" required>
+            <input type="file" id="file">
+            <button onclick="createIssue()">Create Issue</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

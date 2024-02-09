@@ -1,0 +1,4 @@
+mkdir issue-tracker
+cd issue-tracker
+npm init -y
+npm install express body-parser

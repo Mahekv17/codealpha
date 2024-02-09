@@ -1,0 +1,4 @@
+mkdir chatbot-app
+cd chatbot-app
+npm init -y
+npm install express ws openai

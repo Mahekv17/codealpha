@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Social Media Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+
+    <header>
+        <h1>Social Media Dashboard</h1>
+    </header>
+
+    <main>
+        <div id="loginContainer">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" autocomplete="off" required>
+                <span id="usernameError" class="error"></span>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <span id="passwordError" class="error"></span>
+
+                <button type="button" onclick="validateLogin()">Login</button>
+            </form>
+        </div>
+
+        <div id="dashboard" style="display: none;">
+            <h2>Welcome, <span id="loggedInUser"></span>!</h2>
+            <div id="socialMediaButtons">
+                <h3>Login to Social Media</h3>
+                <button onclick="loginToSocialMedia('Twitter')">Login to Twitter</button>
+                <button onclick="loginToSocialMedia('Facebook')">Login to Facebook</button>
+                <button onclick="loginToSocialMedia('Instagram')">Login to Instagram</button>
+            </div>
+            <div id="socialMediaContent">
+                <!-- Display aggregated content here -->
+            </div>
+        </div>
+        
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        function validateLogin() {
+            var usernameInput = document.getElementById('username');
+            var passwordInput = document.getElementById('password');
+            var usernameError = document.getElementById('usernameError');
+            var passwordError = document.getElementById('passwordError');
+
+            // Clear previous error messages
+            usernameError.textContent = '';
+            passwordError.textContent = '';
+
+            // Custom validation rules
+            var usernamePattern = /^[a-zA-Z0-9]+$/;
+            var passwordPattern = /^(?=.*\d)(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/;
+
+            if (!usernamePattern.test(usernameInput.value)) {
+                usernameError.textContent = 'Please enter a valid username (only alphanumeric characters are allowed)';
+                return;
+            }
+
+            if (!passwordPattern.test(passwordInput.value)) {
+                passwordError.textContent = 'Please enter a valid password. It must contain at least one digit, one uppercase letter, and one special character. Minimum length: 8 characters.';
+                return;
+            }
+
+            // If validation passes, you can proceed with login logic
+            simulateLogin();
+        }
+    </script>
+</body>
+</html>
